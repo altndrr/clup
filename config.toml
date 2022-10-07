@@ -1,0 +1,33 @@
+# Configuration file for the CLI module.
+deterministic = true
+
+# The "args" group permits to define the default values for any argument. Note that
+# default values are overwritten if another value is passed from the command line
+# interface. Sub-groups are arbitrary and used only to ease organisation for humans.
+[args.data]
+batch_size = 64                             # Batch size for training and testing
+num_workers = 8                             # Number of workers for data loading
+
+[args.flags]
+checkpoints = false                         # Enable checkpoints
+
+[args.loggers]
+name = ""                                   # Name of the logged run
+project = ""                                # Project name for the logged run
+wandb = false                               # Enable Weights & Biases logging
+
+[args.paths]
+checkpoints_dir = "./models/checkpoints/"   # Checkpoints directory
+data_dir = "./datasets/processed/"          # path where to save the processed datasets
+images_dir = "./media/images/"              # Path where to save the images
+raw_data_dir = "./datasets/raw/"            # path to the raw datasets
+
+[args.trainer]
+accelerator = "gpu"                         # Accelerator to use
+gpus = "0"                                  # GPU to use
+precision = 16                              # Precision to use
+
+# The "environment" group permits to define environmental variables.
+[environment]
+CUDA_VISIBLE_DEVICES = 0                    # Visible GPUs
+WANDB_API_KEY = ""                          # Weights & Biases API key
