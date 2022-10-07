@@ -2,7 +2,7 @@
 cli
 
 Usage:
-    cli cluster-match <network> <teacher> <dataset> --epochs=NUM --lr=VAL [--accelerator=VAL]
+    cli clup <network> <teacher> <dataset> --epochs=NUM --lr=VAL [--accelerator=VAL]
                       [--batch_size=NUM] [--checkpoints] [--checkpoints_dir=PATH]
                       [--criterion_kw=VAL] [--data_dir=PATH] [--freeze=PART] [--gpus=VAL]
                       [--labeled_samples_mode=VAL] [--labeled_samples_mode_kw=VAL]
@@ -53,7 +53,7 @@ import json
 from typing import Dict, Type
 
 from cli.commands.base import BaseCommand
-from cli.commands.cluster_match import ClusterMatch
+from cli.commands.clup import CluPSystem
 from cli.commands.data_prepare import DataPrepare
 
 __version__ = "0.1.0"
@@ -97,6 +97,6 @@ ARGUMENTS: Dict[str, Dict] = {
 }
 
 COMMANDS: Dict[str, Type[BaseCommand]] = {
-    "cluster-match": ClusterMatch,
+    "clup": CluPSystem,
     "data-prepare": DataPrepare,
 }

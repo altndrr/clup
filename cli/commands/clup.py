@@ -13,11 +13,11 @@ from src.data.image import ImageDataModule
 from src.datasets import DATASETS
 from src.models.utils import make_model
 from src.systems.classification import ClassificationSystem
-from src.systems.cluster_match import ClusterMatchSystem
+from src.systems.clup import CluPSystem
 from src.systems.utils import collate_batches, predict_classes
 
 
-class ClusterMatch(BaseCommand):
+class CluP(BaseCommand):
     """Perform cluster match on a network."""
 
     def run(self) -> None:
@@ -140,7 +140,7 @@ class ClusterMatch(BaseCommand):
             criterion_kw["reduction"] = criterion_kw.get("reduction", "batchmean")
             criterion = torch.nn.KLDivLoss(**criterion_kw)
 
-        system = ClusterMatchSystem(
+        system = CluPSystem(
             model,
             labeled_samples=subset_idxs,
             labels=labels,

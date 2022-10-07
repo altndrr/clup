@@ -14,7 +14,7 @@ from src.systems.mixins.mixup import Mixup
 from src.systems.mixins.pseudo_labelling import PseudoLabelling
 
 
-class ClusterMatchSystem(PseudoLabelling, Mixup, ClassificationSystem):
+class CluPSystem(PseudoLabelling, Mixup, ClassificationSystem):
     """Implementation of the Cluster Match method."""
 
     def __init__(
