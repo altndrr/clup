@@ -53,13 +53,8 @@ import json
 from typing import Dict, Type
 
 from cli.commands.base import BaseCommand
-from cli.commands.classification_test import ClassificationTest
-from cli.commands.classification_train import ClassificationTrain
 from cli.commands.cluster_match import ClusterMatch
-from cli.commands.curriculum_labeling import CurriculumLabeling
 from cli.commands.data_prepare import DataPrepare
-from cli.commands.source_hypothesis_transfer import SourceHypothesisTransfer
-from cli.commands.visualise_umap import VisualiseUMAP
 
 __version__ = "0.1.0"
 
