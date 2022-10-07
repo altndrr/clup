@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "iros2022"
+name = "clup"
 version = "0.1.0"
 description = ""
 authors = ["Alessandro Conti <alessandro.conti.97@gmail.com>"]
