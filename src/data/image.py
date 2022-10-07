@@ -8,7 +8,6 @@ from torchvision import transforms as T
 from src.data.base import BaseDataModule
 from src.data.utils import id_collate
 from src.datasets import DATASETS
-from src.datasets.auxiliary import AUXILIARY_DATASETS
 
 
 class ImageDataModule(BaseDataModule):
@@ -101,68 +100,3 @@ class ImageDataModule(BaseDataModule):
             T.ToTensor(),
             T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
         ]
-
-
-class AuxiliaryDataModule(ImageDataModule):
-    """Implementation of a ImageFolder-based datamodule for an auxiliary task."""
-
-    def __init__(
-        self,
-        name: str,
-        task: str,
-        *args,
-        prepare: bool = False,
-        augment: bool = True,
-        batch_size: int = 64,
-        num_workers: int = 0,
-        shuffle: bool = True,
-        **kwargs,
-    ) -> None:
-        super().__init__(
-            name,
-            *args,
-            prepare=prepare,
-            augment=augment,
-            batch_size=batch_size,
-            num_workers=num_workers,
-            shuffle=shuffle,
-            **kwargs,
-        )
-        self.task = task
-
-        task_dataset = AUXILIARY_DATASETS.get(self.task)
-        if task_dataset is None:
-            raise ValueError(f"dataset not in {list(AUXILIARY_DATASETS.keys())}")
-
-        self.task_dataset = task_dataset
-
-        self.dataset_kwargs: Dict = {}
-        self.dataset_kwargs["raw_data_dir"] = self.kwargs.get("raw_data_dir")
-        self.dataset_kwargs["data_dir"] = self.kwargs.get("data_dir")
-
-    def setup(self, stage: Optional[str] = None) -> None:
-        train_root = self.dataset(split="train", **self.dataset_kwargs).root
-        test_root = self.dataset(split="test", **self.dataset_kwargs).root
-
-        train_set = self.task_dataset(
-            train_root, split="train", transform=T.Compose([*self.transforms])
-        )
-        test_set = self.task_dataset(
-            test_root, split="test", transform=T.Compose([*self.transforms])
-        )
-
-        self.train_set = train_set
-        self.val_set = test_set
-        self.test_set = test_set
-        self.predict_set = train_set
-
-        if "val" in self.dataset.available_splits:
-            valid_root = self.dataset(split="val", **self.dataset_kwargs).root
-            valid_set = self.task_dataset(
-                valid_root, split="val", transform=T.Compose([*self.transforms])
-            )
-            self.val_set = valid_set
-
-    @property
-    def augmentations(self) -> List:
-        return []

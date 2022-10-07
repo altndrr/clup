@@ -3,7 +3,6 @@
 from typing import Dict, List, Type
 
 from src.datasets.base import BaseDataset
-from src.datasets.benchmarks import BENCHMARK_DATASETS
 from src.datasets.emotions import AFE, FER2013, JAFFE, RAFDB, SFEW, AffectNet, CKPlus, ExpW
 
 __all__: List[str] = [
@@ -26,5 +25,4 @@ DATASETS: Dict[str, Type[BaseDataset]] = {
     "affectnet": AffectNet,
     "ckplus": CKPlus,
     "expw": ExpW,
-    **BENCHMARK_DATASETS,
 }

@@ -3,16 +3,15 @@
 from typing import Any, Dict, List, Optional, Sequence, Type, Union
 
 import torch
+import wandb
 from pytorch_lightning import Callback
 from pytorch_lightning.utilities.types import STEP_OUTPUT
 from torch import Tensor
 from torch.nn import Module
 from torchmetrics import Accuracy, Metric, MetricCollection, Precision, Recall
 
-import wandb
 from src.models import BaseModel
 from src.systems.base import BaseSystem
-from src.systems.callbacks.auxiliary_task import AuxiliaryTaskCallback
 
 
 class ClassificationSystem(BaseSystem):
@@ -63,14 +62,6 @@ class ClassificationSystem(BaseSystem):
 
     def configure_callbacks(self) -> Union[Sequence[Callback], Callback]:
         callbacks: List[Callback] = []
-
-        if self.hparams.get("auxiliary_task"):
-            auxiliary_task = AuxiliaryTaskCallback(
-                self.hparams.get("auxiliary_task", ""),
-                alpha=self.hparams.get("weight_auxiliary", 0.0),
-                warmup=self.hparams.get("auxiliary_warmup", 0),
-            )
-            callbacks.append(auxiliary_task)
 
         parent_callbacks = super().configure_callbacks()
         if isinstance(parent_callbacks, Callback):

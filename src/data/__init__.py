@@ -2,7 +2,6 @@
 
 from typing import List
 
-from src.data.collate import CollateDataModule
-from src.data.image import AuxiliaryDataModule, ImageDataModule
+from src.data.image import ImageDataModule
 
-__all__: List[str] = ["AuxiliaryDataModule", "CollateDataModule", "ImageDataModule"]
+__all__: List[str] = ["ImageDataModule"]
