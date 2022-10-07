@@ -8,9 +8,6 @@ deterministic = true
 batch_size = 64                             # Batch size for training and testing
 num_workers = 8                             # Number of workers for data loading
 
-[args.flags]
-checkpoints = false                         # Enable checkpoints
-
 [args.loggers]
 name = ""                                   # Name of the logged run
 project = ""                                # Project name for the logged run

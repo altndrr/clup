@@ -2,7 +2,7 @@
 cli
 
 Usage:
-    cli classification-test  <network> <dataset> [--accelerator=VAL] [--batch_size=NUM]
+    cli classification-test <network> <dataset> [--accelerator=VAL] [--batch_size=NUM]
                       [--data_dir=PATH] [--gpus=VAL] [--num_workers=NUM] [--precision=VAL]
                       [--strategy=VAL]
     cli classification-train <network> <dataset> --epochs=NUM --lr=VAL [--accelerator=VAL]
@@ -64,7 +64,7 @@ from typing import Dict, Type
 from cli.commands.base import BaseCommand
 from cli.commands.classification_test import ClassificationTest
 from cli.commands.classification_train import ClassificationTrain
-from cli.commands.clup import CluPSystem
+from cli.commands.clup import CluP
 from cli.commands.data_prepare import DataPrepare
 
 __version__ = "0.1.0"
@@ -110,6 +110,6 @@ ARGUMENTS: Dict[str, Dict] = {
 COMMANDS: Dict[str, Type[BaseCommand]] = {
     "classification-train": ClassificationTrain,
     "classification-test": ClassificationTest,
-    "clup": CluPSystem,
+    "clup": CluP,
     "data-prepare": DataPrepare,
 }

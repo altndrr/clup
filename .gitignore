@@ -3,6 +3,6 @@ bash_files/*
 checkpoints/*
 datasets/*
 media/*
-models/*
+models/checkpoints/*
 wandb/*
 experimental.py

@@ -1,4 +1,4 @@
-"""Implementation of a command for cluster matching systems."""
+"""Implementation of a command for CluP systems."""
 
 from typing import List, Union
 
@@ -18,7 +18,7 @@ from src.systems.utils import collate_batches, predict_classes
 
 
 class CluP(BaseCommand):
-    """Perform cluster match on a network."""
+    """Apply CluP on a network."""
 
     def run(self) -> None:
         model = make_model(
@@ -142,8 +142,8 @@ class CluP(BaseCommand):
 
         system = CluPSystem(
             model,
+            labels,
             labeled_samples=subset_idxs,
-            labels=labels,
             criterion=criterion,
             pseudo_labeling_mode=self.options.get("labeled_samples_mode"),
             pseudo_labeling_mode_kw=self.options.get("labeled_samples_mode_kw", {}),

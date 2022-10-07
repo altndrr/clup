@@ -1,4 +1,4 @@
-"""Module containing the Cluster Match method."""
+"""Module containing the CluP method."""
 
 from typing import Dict, List, Optional, Sequence, Type, Union
 
@@ -15,13 +15,13 @@ from src.systems.mixins.pseudo_labelling import PseudoLabelling
 
 
 class CluPSystem(PseudoLabelling, Mixup, ClassificationSystem):
-    """Implementation of the Cluster Match method."""
+    """Implementation of the CluP method."""
 
     def __init__(
         self,
         model: Type[BaseModel],
-        *args,
         labels: torch.Tensor,
+        *args,
         labeled_samples: Optional[List[int]] = None,
         **kwargs,
     ) -> None:
