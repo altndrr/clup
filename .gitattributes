@@ -1,0 +1,5 @@
+models/source/pretrained/resnet18.pt filter=lfs diff=lfs merge=lfs -text
+models/source/resnet18_afe-0.9286.pt filter=lfs diff=lfs merge=lfs -text
+models/source/resnet18_rafdb-0.839.pt filter=lfs diff=lfs merge=lfs -text
+models/target/pretrained/swav-1000ep-ExpW-5000prototypes.ckpt filter=lfs diff=lfs merge=lfs -text
+models/target/pretrained/swav-1000ep-FER2013-5000prototypes.ckpt filter=lfs diff=lfs merge=lfs -text
