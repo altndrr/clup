@@ -19,7 +19,6 @@ wandb = false                               # Enable Weights & Biases logging
 [args.paths]
 checkpoints_dir = "./models/checkpoints/"   # Checkpoints directory
 data_dir = "./datasets/processed/"          # path where to save the processed datasets
-images_dir = "./media/images/"              # Path where to save the images
 raw_data_dir = "./datasets/raw/"            # path to the raw datasets
 
 [args.trainer]
