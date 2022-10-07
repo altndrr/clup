@@ -1,8 +1,6 @@
 __pycache__/
-bash_files/*
-checkpoints/*
-datasets/*
-media/*
-models/checkpoints/*
-wandb/*
-experimental.py
+.vscode/
+datasets/
+media/
+models/checkpoints/
+wandb/
