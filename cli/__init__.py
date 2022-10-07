@@ -2,6 +2,15 @@
 cli
 
 Usage:
+    cli classification-test  <network> <dataset> [--accelerator=VAL] [--batch_size=NUM]
+                      [--data_dir=PATH] [--gpus=VAL] [--num_workers=NUM] [--precision=VAL]
+                      [--strategy=VAL]
+    cli classification-train <network> <dataset> --epochs=NUM --lr=VAL [--accelerator=VAL]
+                      [--batch_size=NUM] [--checkpoints] [--checkpoints_dir=PATH]
+                      [--criterion_kw=VAL] [--data_dir=PATH] [--freeze=PART] [--gpus=VAL]
+                      [--lr_scheduler=VAL] [--lr_scheduler_kw=VAL] [--name=VAL] [--num_workers=NUM]
+                      [--optimizer=VAL] [--optimizer_kw=VAL] [--precision=VAL] [--project=VAL]
+                      [--strategy=VAL] [--wandb] [--weight_norm]
     cli clup <network> <teacher> <dataset> --epochs=NUM --lr=VAL [--accelerator=VAL]
                       [--batch_size=NUM] [--checkpoints] [--checkpoints_dir=PATH]
                       [--criterion_kw=VAL] [--data_dir=PATH] [--freeze=PART] [--gpus=VAL]
@@ -53,6 +62,8 @@ import json
 from typing import Dict, Type
 
 from cli.commands.base import BaseCommand
+from cli.commands.classification_test import ClassificationTest
+from cli.commands.classification_train import ClassificationTrain
 from cli.commands.clup import CluPSystem
 from cli.commands.data_prepare import DataPrepare
 
@@ -97,6 +108,8 @@ ARGUMENTS: Dict[str, Dict] = {
 }
 
 COMMANDS: Dict[str, Type[BaseCommand]] = {
+    "classification-train": ClassificationTrain,
+    "classification-test": ClassificationTest,
     "clup": CluPSystem,
     "data-prepare": DataPrepare,
 }
