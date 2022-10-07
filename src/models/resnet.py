@@ -88,7 +88,7 @@ class ResNet(BaseModel):
 
         num_classes = list(classifier_weights.values())[-1].shape[0]
 
-        weight_norm = f"{self.classifier_name}.weight_g" in weights_dict
+        weight_norm = f"weight_g" in classifier_weights
         self.update_classifier(num_classes, weight_norm)
 
         self.encoder.load_state_dict(encoder_weights, strict=True)
