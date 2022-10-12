@@ -1,6 +1,6 @@
 # Cluster-level pseudo-labelling for source-free cross-domain facial expression recognition
 
-This repository contains the code for the paper **Cluster-level pseudo-labelling for source-free cross-domain facial expression recognition**, accepted at BVMC 2022.
+This repository contains the code for the paper [Cluster-level pseudo-labelling for source-free cross-domain facial expression recognition](https://arxiv.org/abs/2210.05246), accepted at BVMC 2022.
 
 ## Setup
 
