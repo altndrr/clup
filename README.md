@@ -5,9 +5,9 @@
 [![Paper](https://img.shields.io/badge/arXiv-2210.05246-B31B1B)](https://arxiv.org/abs/2210.05246)
 [![Conference](https://img.shields.io/badge/BMVC-2022-4b44ce)](https://bmvc2022.mpi-inf.mpg.de/486/)
 
-<a href="https://www.python.org"><img alt="Python" src="https://img.shields.io/badge/-Python_3.9.12-blue?logo=python&logoColor=white"></a>
-<a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch_1.10+-ee4c2c?logo=pytorch&logoColor=white"></a>
-<a href="https://pytorchlightning.ai/"><img alt="Lightning" src="https://img.shields.io/badge/-Lightning_1.5+-792ee5?logo=pytorchlightning&logoColor=white"></a>
+<a href="https://www.python.org"><img alt="Python" src="https://img.shields.io/badge/-Python_3.9-blue?logo=python&logoColor=white"></a>
+<a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch_1.13-ee4c2c?logo=pytorch&logoColor=white"></a>
+<a href="https://pytorchlightning.ai/"><img alt="Lightning" src="https://img.shields.io/badge/-Lightning_1.6-792ee5?logo=pytorchlightning&logoColor=white"></a>
 
 
 </div>
@@ -184,14 +184,4 @@ python -m cli clup \
     --labeled_samples_mode purity \
     --labeled_samples_mode_kw "{\"num_prototypes\": 1000, \"drop_outliers\": false, \"iter_clusters\": 1}" \
     --labeled_samples_size 0.2
-```
-
-## Common issues
-
-### GPUs requiring cu11.3
-
-For GPUs requiring cu11.3, overwrite the torch installation with pip
-
-```sh
-pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu113 --force
 ```
