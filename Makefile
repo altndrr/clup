@@ -19,8 +19,8 @@ install: ## Install dependencies
 		python -m venv .venv; \
 	fi
 
-	source .venv/bin/activate;
-	pip install --upgrade pip;
-	pip install flit;
-	flit install -s --only-deps --env;
+	source .venv/bin/activate && \
+	pip install --upgrade pip && \
+	pip install flit && \
+	flit install -s --only-deps --env && \
 	deactivate;
