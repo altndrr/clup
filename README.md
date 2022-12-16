@@ -4,19 +4,24 @@ This repository contains the code for the paper [Cluster-level pseudo-labelling 
 
 ## Setup
 
-To setup the repository, you can use poetry and run the following commands:
+To setup the repository, run the following commands:
 
 ```sh
-poetry install
-```
+if [ ! -d .venv ]; then \
+	python -m venv .venv; \
+fi
 
-If poetry is not available, the list of packages used in the project can be found in the `pyproject.toml` file,
-under the `tool.poetry.dependencies` section.
+source .venv/bin/activate;
+pip install --upgrade pip;
+pip install flit;
+flit install -s --only-deps --env;
+deactivate;
+```
 
 To then enter the virtual environment, you can manually source the environment, or run:
 
 ```sh
-poetry shell
+source .venv/bin/activate
 ```
 
 ### Configuration file
@@ -179,15 +184,6 @@ python -m cli clup \
 ```
 
 ## Common issues
-
-### AttributeError when running CLI
-
-If you the the error `AttributeError: module 'distutils' has no attribute 'version'`,
-you can fix it by running:
-
-```sh
-pip install setuptools==59.5.0
-```
 
 ### GPUs requiring cu11.3
 
