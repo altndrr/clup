@@ -7,15 +7,7 @@ This repository contains the code for the paper [Cluster-level pseudo-labelling 
 To setup the repository, run the following commands:
 
 ```sh
-if [ ! -d .venv ]; then \
-	python -m venv .venv; \
-fi
-
-source .venv/bin/activate;
-pip install --upgrade pip;
-pip install flit;
-flit install -s --only-deps --env;
-deactivate;
+make install
 ```
 
 To then enter the virtual environment, you can manually source the environment, or run:
