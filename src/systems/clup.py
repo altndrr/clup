@@ -88,7 +88,8 @@ class CluPSystem(PseudoLabelling, Mixup, ClassificationSystem):
         batch, batch_idx = args
 
         indices, (inputs, _) = batch
-        labels = self.labels[indices].to(self.device)
+        self.labels = self.labels.to(self.device)
+        labels = self.labels[indices]
         training_outputs = {"inputs": inputs, "labels": labels, "batch_idx": batch_idx}
 
         # If needed, mixup data.
